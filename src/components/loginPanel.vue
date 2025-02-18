@@ -9,6 +9,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'loginPanel',
+}
+</script>
+
 <style scoped>
 h1 {
   text-align: center;
