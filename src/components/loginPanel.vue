@@ -1,21 +1,58 @@
 <template>
-  <div class="wrapper">
-    <div class="container">
+  <div class="modal-overlay">
+    <div class="modal">
+      <button class="close-btn" @click="$emit('close')">X</button>
       <h1>Create Account</h1>
       <input type="text" placeholder="Name" />
       <input type="email" placeholder="Email" />
-      <input type="budget" placeholder="Budget" />
+      <input type="number" placeholder="Budget" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'loginPanel',
-}
+  name: 'LoginPanel',
+};
 </script>
 
 <style scoped>
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  max-width: 600px;
+  padding: 50px 80px;
+  background-color: #70B364;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
 h1 {
   text-align: center;
   color: black;
@@ -24,33 +61,11 @@ h1 {
   border-radius: 10px;
 }
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 50px 80px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color:#70B364;
-}
-
 input {
   width: 100%;
   padding: 10px;
   margin: 10px;
-  justify-content: center;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
 </style>
-

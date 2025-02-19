@@ -1,5 +1,5 @@
 <template>
-    <headerComponent></headerComponent>
+     <headerComponent></headerComponent>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ import loginPanel from '@/components/loginPanel.vue'
 
 export default {
   components: {
-    headerComponent,
+    headerComponent
   }
 }
 
