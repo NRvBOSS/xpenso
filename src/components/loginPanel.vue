@@ -42,15 +42,15 @@ export default {
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   background: red;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 15px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 h1 {

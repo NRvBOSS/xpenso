@@ -34,7 +34,7 @@ h1 {
   color: #70B364;
   border: 2px solid #70B364;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s, color 0.3s;
