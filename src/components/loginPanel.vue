@@ -26,7 +26,7 @@
 
         <p>Not registered yet? <a href="#">Sign Up Now</a></p>
 
-        <button @click="showModal = false" class="close-button">Close</button>
+        <button @click="showModal = false" class=" close-button">Close</button>
       </div>
     </div>
   </div>
@@ -105,7 +105,7 @@ input {
   color: white;
   padding: 10px;
   border: none;
-  width: 100%;
+  width: 25px;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 10px;

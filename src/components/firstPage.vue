@@ -39,7 +39,7 @@
 
         <p>Not registered yet? <a href="#">Sign Up Now</a></p> -->
 
-        <button @click="showModal = false" class="close-button">&times;</button>
+        <span @click="showModal = false" class="close-button">&times;</span>
       </div>
     </div>
   </div>
@@ -166,10 +166,13 @@ input {
   color: white;
   padding: 10px;
   border: none;
-  width: 100%;
+  width: 40px;
   cursor: pointer;
   border-radius: 5px;
-  margin-top: 10px;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  float: right;
 }
 
 .social-buttons button {
