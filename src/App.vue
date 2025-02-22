@@ -1,13 +1,15 @@
 <template>
-     <headerComponent></headerComponent>
+    <FirstPage />
 </template>
 
 <script>
-import headerComponent from '@/components/header.vue';
+import startPage from '@/components/startPage.vue';
+import FirstPage from './components/firstPage.vue';
 
 export default {
   components: {
-    headerComponent
+    FirstPage,
+    startPage
   }
 }
 
