@@ -6,14 +6,56 @@
       income, track expenses, and optimize your budget. Stay in control of your
       financial future today!
     </p>
-    <p class="fade-in description" style="animation-delay: 0.75s">
+    <p class="fade-in description" style="animation-delay: 0.5s">
       Let's start follow your expenses!
     </p>
-    <button @click="showModal = true" class="login-button">Sign Up!</button>
+    <button @click="showLoginModal = true" class="login-button"
+    style="animation-delay: 0.75s">Login!</button>
+    
+    <button @click="showSignUpModal = true" 
+    class="signup-button"
+    style="animation-delay: 1s">Sign Up!</button>
   </div>
+
+
+
   <div class="modal-button">
-    <div v-if="showModal" class="modal-overlay">
-      <div class="modal">
+    <div v-if="showLoginModal" class="login-modal-overlay">
+      <div class="login-modal">
+        <h2>Login!</h2>
+        <p>Login into your account.</p>
+
+        <label>Name</label>
+        <input type="name" v-model="name" placeholder="John Doe" />
+
+        <label>Email</label>
+        <input type="email" v-model="email" placeholder="johndoe@work.com" />
+
+        <label>Password</label>
+        <input type="password" v-model="password" placeholder="********" />
+
+        <!-- <a href="#">Forgot Password?</a> -->
+        <button @click="submitLogin" class="submit-button">Login</button>
+
+        <!-- <p>Or Sign in with:</p>
+        <div class="social-buttons">
+          <button>Google</button>
+          <button>LinkedIn</button>
+          <button>GitHub</button>
+        </div>
+
+        <p>Not registered yet? <a href="#">Sign Up Now</a></p> -->
+
+        <span @click="showLoginModal = false" class="close-button">&times;</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal-button">
+    <div v-if="showSignUpModal" class="signup-modal-overlay">
+      <div class="signup-modal">
         <h2>Sign Up</h2>
         <p>Sign into your account.</p>
 
@@ -27,7 +69,7 @@
         <input type="password" v-model="password" placeholder="********" />
 
         <!-- <a href="#">Forgot Password?</a> -->
-        <button @click="submitLogin" class="submit-button">Submit</button>
+        <button @click="submitLogin" class="submit-button">Sign Up</button>
 
         <!-- <p>Or Sign in with:</p>
         <div class="social-buttons">
@@ -38,10 +80,13 @@
 
         <p>Not registered yet? <a href="#">Sign Up Now</a></p> -->
 
-        <span @click="showModal = false" class="close-button">&times;</span>
+        <span @click="showSignUpModal = false" class="close-button">&times;</span>
       </div>
     </div>
   </div>
+
+
+
 </template>
 
 <script>
@@ -49,7 +94,8 @@ export default {
   name: "firstPage",
   data() {
     return {
-      showModal: false,
+      showLoginModal: false,
+      showSignUpModal: false,
       name: "",
       email: "",
       password: "",
@@ -111,8 +157,26 @@ export default {
 }
 
 .login-button {
-  padding: 10px 20px;
+  margin: 20px;
+  padding: 10px 30px;
   background: #70b364;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.login-button:hover {
+  background: #497e40;
+  transition: background 0.5s;
+}
+
+.signup-button {
+  padding: 10px 20px;
+  background: #a2933b ;
   color: white;
   border: none;
   cursor: pointer;
@@ -123,7 +187,12 @@ export default {
   animation-delay: 1s;
 }
 
-.modal-overlay {
+.signup-button:hover {
+  background: #7a6a2e;
+  transition: background 0.5s;
+}
+
+.login-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -135,7 +204,28 @@ export default {
   justify-content: center;
 }
 
-.modal {
+.login-modal {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+.signup-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-modal {
   position: relative;
   background: white;
   padding: 20px;
