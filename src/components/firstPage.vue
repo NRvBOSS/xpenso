@@ -135,6 +135,7 @@ export default {
 }
 
 .modal {
+  position: relative;
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -162,24 +163,31 @@ input {
 }
 
 .close-button {
-  background: #dc3545;
-  color: white;
+  background: white;
+  color: black;
   padding: 10px;
   border: none;
-  width: 40px;
+  width: 20px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px;
   top: 10px;
   right: 10px;
   position: absolute;
   float: right;
+  font-size: 20px;
 }
 
-.social-buttons button {
+.close-button:hover {
+  background: red;
+  transition: background 0.5s;
+
+}
+
+/* .social-buttons button {
   margin: 5px;
   padding: 5px 10px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-}
+} */
 </style>
