@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import welcomeComponent from './components/welcomePage.vue'
-import mainComponent from './components/main.vue'
+import welcomeComponent from './views/welcomePage.vue'
+import mainComponent from './views/main.vue'
 
 const router = createRouter({
     history: createWebHistory(),
