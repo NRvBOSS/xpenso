@@ -27,7 +27,6 @@
         <input type="password" v-model="password" placeholder="********" />
 
         <!-- <a href="#">Forgot Password?</a> -->
-
         <button @click="submitLogin" class="submit-button">Submit</button>
 
         <!-- <p>Or Sign in with:</p>
@@ -51,14 +50,16 @@ export default {
   data() {
     return {
       showModal: false,
+      name: "",
       email: "",
       password: "",
     };
   },
   methods: {
     submitLogin() {
-      alert(`Logging in as ${this.email}`);
-      this.showModal = false;
+      // alert(`Logging in as ${this.email}`);
+      // this.showModal = false;
+      this.$router.push("/main");
     },
   },
 };
