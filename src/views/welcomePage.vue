@@ -85,11 +85,15 @@
     </div>
   </div>
 
-
+<div>
+<AppFooter />
+</div>
 
 </template>
 
 <script>
+import AppFooter from "./footerComponent.vue";
+
 export default {
   name: "firstPage",
   data() {
@@ -99,6 +103,7 @@ export default {
       name: "",
       email: "",
       password: "",
+      year: year,
     };
   },
   methods: {
@@ -108,7 +113,13 @@ export default {
       this.$router.push("/main");
     },
   },
+  components: {
+    AppFooter,
+  },
 };
+
+const year = new Date().getFullYear();
+
 </script>
 
 <style scoped>
@@ -274,11 +285,4 @@ input {
 
 }
 
-/* .social-buttons button {
-  margin: 5px;
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-} */
 </style>
