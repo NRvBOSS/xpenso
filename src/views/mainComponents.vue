@@ -1,56 +1,43 @@
 <template>
-  <div class="container-expenses">
+  <div class="totalAndAdd">
+    <div class="add">
+      <h3>Add your daily finance</h3>
+      <button @click="showModal = true">+</button>
 
+      <div v-if="showModal" class="modal-overlay">
+        <div class="modal">
+          <div class="expenses">
+            <label>Add your daily expenses.</label>
+            <input
+            class="expenses-input"
+              type="number"
+              v-model="money"
+              placeholder="example - 20.00"
+            />
+          </div>
 
-    <div class="expenses">
-      <h3>Add Expenses</h3>
-      <button>+</button>
-    </div>
+          <div class="income">
+            <label>Add your daily incomes.</label>
+            <input class="income-input"
+              type="number"
+              v-model="money"
+              placeholder="example - 20.00"
+            />
+          </div>
 
-    <div class="main">
-      <div class="main-header">
-        <slot name="money">
-          <h1>{{ money.toFixed(2) }}</h1>
-        </slot>
-      </div>
-      <div class="main-body">
-        <slot name="about">
-          <p>{{ about }}</p>
-        </slot>
-      </div>
-      <div class="main-footer">
-        <slot name="footer">
-          <p>{{ date }}</p>
-        </slot>
-      </div>
-    </div>
+          <div class="add-buttons">
+            <button @click="addFinance" class="add-finance">Add</button>
+            <button @click="addFinance" class="add-finance">Add</button>
+          </div>
 
-<div class="container-income">
-    <div class="income">
-      <h3>Add Income</h3>
-      <button>+</button>
-    </div>
-
-    <div class="main-income">
-      <div class="main-income-header">
-        <slot name="money">
-          <h1>{{ money.toFixed(2) }}</h1>
-        </slot>
-      </div>
-      <div class="main-income-body">
-        <slot name="about">
-          <p>{{ about }}</p>
-        </slot>
-      </div>
-      <div class="main-income-footer">
-        <slot name="footer">
-          <p>{{ date }}</p>
-        </slot>
+          <button @click="showModal = false" class="close-button">Close</button>
+        </div>
       </div>
     </div>
-</div>
-
-
+    <div class="total">
+      <h3>Total</h3>
+      <p>{{ money }}</p>
+    </div>
   </div>
 </template>
 
@@ -59,152 +46,122 @@ export default {
   name: "MainComponent",
   data() {
     return {
-      money: 20.0,
-      about: "Shopping",
+      showModal: false,
+      money: "",
+      about: "",
       date: new Date().toDateString(),
     };
   },
 };
 </script>
 
-<style>
-
+<style scoped>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-.container-expenses {
+.totalAndAdd {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   margin-top: 90px;
 }
 
-.container-income {
+.add {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 10px;
+  width: 200px;
+}
+
+.add button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.add button:hover {
+  background-color: #0056b3;
+}
+
+.total {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.modal {
+  background: white;
   padding: 20px;
-  margin-top: 90px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .expenses {
-  background: #f8f9fa;
-  padding: 15px;
-  margin-left: 50px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 200px;
-}
-
-.expenses button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 20px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.main {
-  background-color: red;
-  border-radius: 5px;
-  padding: 20px;
-  width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: red;
+  border-radius: 15px;
 }
-
-.main-header h1 {
-  color: white;
-}
-
-.main-body{
-    width: 100%;
-    border-bottom: 1px solid white;
-}
-
-.main-body p {
-  color: white;
-  padding-bottom: 10px;
-  padding-top: 0;
-  margin-bottom: 0;
-  width: 100px;
-  margin-left: 39.5%;
-}
-
-.main-footer p {
-  color: white;
-  margin-top: 10px;
-  font-size: 12px;
-  margin-bottom: 0;
-}
-
 
 .income {
-  background: #f8f9fa;
-  padding: 15px;
-  margin-left: 50px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 200px;
-}
-
-.income button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 20px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.main-income {
-  background-color: green;
-  border-radius: 5px;
-  padding: 20px;
-  width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
+  background-color: green;
+  border-radius: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.main-income-header h1 {
-  color: white;
+input {
+  border-radius: 0 0 15px 15px;
+  padding: 10px;
+  width: 100%;
+  border: none;
 }
 
-.main-income-body{
-    width: 100%;
-    border-bottom: 1px solid white;
+.expenses-input {
+  border-radius: 2px solid red;
 }
 
-.main-income-body p {
-  color: white;
-  padding-bottom: 10px;
-  padding-top: 0;
-  margin-bottom: 0;
-  width: 100px;
-  margin-left: 39.5%;
+.income-input {
+  border-radius: 2px solid green;
 }
 
-.main-income-footer p {
-  color: white;
-  margin-top: 10px;
-  font-size: 12px;
-  margin-bottom: 0;
+.add-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
 }
-
-
 
 </style>

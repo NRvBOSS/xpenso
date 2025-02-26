@@ -16,7 +16,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
 }
 
 h1 {

@@ -123,6 +123,13 @@ const year = new Date().getFullYear();
 </script>
 
 <style scoped>
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: auto;
+}
+
 .container {
   display: flex;
   flex-direction: column;
