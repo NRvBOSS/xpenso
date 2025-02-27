@@ -1,17 +1,27 @@
 <template>
   <div id="app">
     <main>
-      <!-- Burada saytın əsas məzmunu olacaq -->
+      <div>hello</div>
     </main>
     <footer>
       <p>
-        Contact me: <a href="mailto:nrvcorporation@gmail.com">nrvcorporation@gmail.com</a>
+        Contact me:
+        <a href="mailto:nrvcorporation@gmail.com">nrvcorporation@gmail.com</a>
       </p>
-      <a href="https://www.linkedin.com/in/%C9%99lih%C3%BCseyn-ba%C4%9F%C4%B1rov-b46315267/" class="footer-logo-container">
-        <img src="../views/photos/174857.png" alt="LinkedIn Profile" class="footer-logo" />
+      <a
+        href="https://www.linkedin.com/in/%C9%99lih%C3%BCseyn-ba%C4%9F%C4%B1rov-b46315267/"
+        class="footer-logo-container"
+      >
+        <img
+          src="../views/photos/174857.png"
+          alt="LinkedIn Profile"
+          class="footer-logo"
+        />
       </a>
       <div class="footer-separator"></div>
-      <p class="footer-text">&copy; {{ currentYear }} xPenso | Powered by Nirvana Corporation</p>
+      <p class="footer-text">
+        &copy; {{ currentYear }} xPenso | Powered by Nirvana Corporation
+      </p>
     </footer>
   </div>
 </template>
@@ -29,29 +39,27 @@ export default {
 </script>
 
 <style>
-/* Sayfanın ümumi hündürlüyünü 100vh edirik */
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
+  min-height: 60vh;
 }
 
-/* Məzmun yerini tam doldurur */
 main {
   flex-grow: 1;
 }
 
-/* Footer səhifənin altına yaxın olur */
 footer {
+  font-weight: bolder;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  color: white;
   background-color: #70b364;
-  padding: 0.5rem 1rem;
+  color: white;
   width: 100%;
-  position: relative;
+  position: absolute;
+  z-index: -1;
+  left: 0;
   bottom: 0;
 }
 
@@ -69,11 +77,13 @@ p {
   height: 40px;
   object-fit: contain;
   margin-right: 20px;
+  background-color: white;
+  border-radius: 4px;
 }
 
 .footer-separator {
   flex-grow: 1;
-  height: 1px;
+  height: 2px;
   background-color: white;
   margin: 0 10px;
 }

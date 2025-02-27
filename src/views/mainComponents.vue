@@ -6,29 +6,37 @@
 
       <div v-if="showModal" class="modal-overlay">
         <div class="modal">
-          <div class="expenses">
-            <label>Add your daily expenses.</label>
-            <input
-            class="expenses-input"
-              type="number"
-              v-model="money"
-              placeholder="example - 20.00"
-            />
+          <div class="cart-container">
+            <div class="expenses">
+              <label>Add your daily expenses.</label>
+              <input
+                class="expenses-input"
+                type="number"
+                v-model="money"
+                placeholder="example - 20.00"
+              />
+            </div>
+            <div class="submit-button">
+              <button @click="addFinance" class="add-finance">Add</button>
+            </div>
           </div>
 
-          <div class="income">
-            <label>Add your daily incomes.</label>
-            <input class="income-input"
-              type="number"
-              v-model="money"
-              placeholder="example - 20.00"
-            />
+          <div class="cart-container">
+            <div class="income">
+              <label>Add your daily expenses.</label>
+              <input
+                class="income-input"
+                type="number"
+                v-model="money"
+                placeholder="example - 20.00"
+              />
+            </div>
+            <div class="submit-button">
+              <button @click="addFinance" class="add-finance">Add</button>
+            </div>
           </div>
 
-          <div class="add-buttons">
-            <button @click="addFinance" class="add-finance">Add</button>
-            <button @click="addFinance" class="add-finance">Add</button>
-          </div>
+          <div class="add-buttons"></div>
 
           <button @click="showModal = false" class="close-button">Close</button>
         </div>
@@ -128,7 +136,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 20px;
   background-color: red;
   border-radius: 15px;
 }
@@ -164,4 +171,15 @@ input {
   justify-content: space-between;
 }
 
+.cart-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+}
+
+.submit-button {
+  margin-left: auto;
+}
 </style>

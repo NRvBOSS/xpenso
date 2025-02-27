@@ -12,8 +12,8 @@ import MainComponents from './mainComponents.vue';
 export default {
     components: {
         HeaderComponent,
-        FooterComponent,
-        MainComponents
+        MainComponents,
+        FooterComponent
     }
     
 }
